@@ -9,9 +9,14 @@
         <fileSet>
             <directory>${project.build.directory}/classes</directory>
             <includes>
-                <include>com/wind/user/service/**</include>
-                <include>com/wind/user/MainProvider.class</include>
+                <include>com/wind/auth/model/**</include>
+                <include>com/wind/auth/service/*.class</include>
             </includes>
+
+            <excludes>
+                <exclude>com/wind/auth/service/impl/**</exclude>
+            </excludes>
+
             <outputDirectory>/</outputDirectory>
         </fileSet>
     </fileSets>
