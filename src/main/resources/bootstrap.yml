@@ -1,0 +1,8 @@
+#spring:
+#  application:
+#    name: wind-user-service
+#  cloud:
+#    config:
+#      uri:http://wind.com:6666/
+#      profile: dev
+#      label: master

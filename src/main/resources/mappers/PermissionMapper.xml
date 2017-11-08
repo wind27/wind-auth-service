@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wind.auth.model.Permission">
+    <resultMap id="permissionResultMap" type="com.wind.auth.model.Permission">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="seq" jdbcType="TINYINT" property="seq"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.wind.auth.model.Permission">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS ID
+        </selectKey>
+        insert into permission (name, value, status, create_time, update_time)
+        values (#{name}, #{value}, #{status}, now(), now())
+    </insert>
+
+    <select id="findById" parameterType="long" resultMap="permissionResultMap">
+        select
+        id, name, value, status, create_time, update_time
+        from permission
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <select id="findByRoleId" parameterType="long" resultMap="permissionResultMap">
+      SELECT
+        p.id, p.name, p.value, p. status, p.create_time, p.update_time
+      FROM
+        permission AS p
+        LEFT JOIN role_permission AS rp ON rp.permission_id = p.id
+        WHERE rp.role_id = #{roleId}
+    </select>
+
+    <select id="findByRoleIds" parameterType="long" resultMap="permissionResultMap">
+        SELECT
+        p.id, p.name, p.value, p. status, p.create_time, p.update_time
+        FROM
+        permission AS p
+        LEFT JOIN role_permission AS rp ON rp.permission_id = p.id
+        WHERE rp.role_id IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="findByUserId" parameterType="long" resultMap="permissionResultMap">
+        SELECT DISTINCT
+	      (p.id), p.name, p.value, p. status, p.create_time, p.update_time
+        FROM
+	      permission AS p
+        LEFT JOIN role_permission AS rp ON p.id = rp.permission_id
+        LEFT JOIN user_role AS ur ON rp.role_id = ur.role_id
+        WHERE
+	      ur.user_id = #{userId}
+    </select>
+</mapper>

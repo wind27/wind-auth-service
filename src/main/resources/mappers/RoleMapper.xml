@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wind.auth.model.Role">
+    <resultMap id="roleResultMap" type="com.wind.auth.model.Role">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <collection property="permissions" javaType="java.util.List" ofType="com.wind.auth.model.Permission">
+            <id column="id" jdbcType="VARCHAR" property="id"/>
+            <result column="name" jdbcType="VARCHAR" property="name"/>
+            <result column="value" jdbcType="VARCHAR" property="value"/>
+            <result column="status" jdbcType="TINYINT" property="status"/>
+            <result column="create_time" jdbcType="TIMESTAMP" property="updateTime"/>
+            <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        </collection>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.wind.auth.model.Role">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into role (name, status, create_time, update_time)
+        values (#{name}, #{status}, now(), now())
+    </insert>
+
+
+    <select id="findByUserId" parameterType="long" resultMap="roleResultMap">
+        SELECT
+          r.id,r.`name`, r.`status`, r.create_time, r.update_time
+        FROM
+          role AS r
+        LEFT JOIN user_role AS ur ON ur.role_id = r.id where ur.user_id = #{userId};
+    </select>
+</mapper>

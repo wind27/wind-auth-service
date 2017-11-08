@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wind.auth.model.App">
+    <resultMap id="appResultMap" type="com.wind.auth.model.App">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="home_page_url" jdbcType="VARCHAR" property="homePageUrl"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.wind.auth.model.App">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into app (name, status, home_page_url, create_time, update_time)
+        values (#{name}, #{status}, #{homePageUrl}, now(), now())
+    </insert>
+
+
+    <select id="findById" parameterType="long" resultMap="appResultMap">
+        SELECT
+          id, name, status, home_page_url, create_time, a.update_time
+        FROM
+          app
+        WHERE
+          id = #{id}
+    </select>
+</mapper>
