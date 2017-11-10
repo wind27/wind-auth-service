@@ -5,7 +5,7 @@ import com.wind.model.BaseObject;
 import java.util.Date;
 
 /**
- * App 应用app
+ * Menu 菜单
  *
  * @author qianchun 17/11/6
  **/
@@ -17,19 +17,24 @@ public class Menu extends BaseObject {
     private long id;
 
     /**
-     * 应用名称
+     * 菜单名称
      */
     private String name;
 
     /**
-     * 应用状态 1:启用 0:停用
+     * 菜单状态 1:启用 0:停用
      */
     private int status;
 
     /**
-     * 首页地址
+     * 所属应用ID
      */
-    private String homePageUrl;
+    private long appId;
+
+    /**
+     * 访问地址
+     */
+    private String url;
 
     /**
      * 创建时间
@@ -40,6 +45,11 @@ public class Menu extends BaseObject {
      * 更新时间
      */
     private Date updateTime;
+
+    /**
+     * 上一级ID 根目录0
+     */
+    private long parentId;
 
     public long getId() {
         return id;
@@ -65,14 +75,6 @@ public class Menu extends BaseObject {
         this.status = status;
     }
 
-    public String getHomePageUrl() {
-        return homePageUrl;
-    }
-
-    public void setHomePageUrl(String homePageUrl) {
-        this.homePageUrl = homePageUrl;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -87,5 +89,29 @@ public class Menu extends BaseObject {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public long getAppId() {
+        return appId;
+    }
+
+    public void setAppId(long appId) {
+        this.appId = appId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(long parentId) {
+        this.parentId = parentId;
     }
 }
