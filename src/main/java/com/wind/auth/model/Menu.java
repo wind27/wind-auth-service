@@ -2,6 +2,7 @@ package com.wind.auth.model;
 
 import com.wind.model.BaseObject;
 
+import java.time.Instant;
 import java.util.Date;
 
 /**
@@ -39,7 +40,7 @@ public class Menu extends BaseObject {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private Instant createTime;
 
     /**
      * 更新时间
@@ -75,11 +76,11 @@ public class Menu extends BaseObject {
         this.status = status;
     }
 
-    public Date getCreateTime() {
+    public Instant getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Instant createTime) {
         this.createTime = createTime;
     }
 

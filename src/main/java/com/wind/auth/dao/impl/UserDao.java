@@ -19,10 +19,12 @@ import java.util.Map;
 public class UserDao extends BaseDao<User, Long> implements IUserDao {
     private static final String namespace = User.class.getName();
 
+    @Override
     public List<User> find(Map<String, Object> params) {
         return null;
     }
 
+    @Override
     public User findByUsername(String username) {
         return super.getSqlSession().selectOne(namespace+".findByUsername", username);
     }
