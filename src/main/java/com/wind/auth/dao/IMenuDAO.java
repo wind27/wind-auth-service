@@ -1,5 +1,7 @@
 package com.wind.auth.dao;
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.wind.annotation.DAO;
 import com.wind.auth.model.Menu;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -9,8 +11,8 @@ import org.apache.ibatis.annotations.Select;
  * @author yangying
  * @date 2017/11/10.
  */
-@Mapper()
-public interface MenuDAO {
-//    @Select("select * from menu where id = #{id}")
-//    Menu findMenuById(@Param("id") long id);
+@Mapper
+interface MenuDAO {
+    @Select("select * from menu where id = #{id}")
+    Menu findMenuById(@Param("id") long id);
 }
