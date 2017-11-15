@@ -11,8 +11,7 @@ import org.apache.ibatis.annotations.Select;
  * @author yangying
  * @date 2017/11/10.
  */
-@Mapper
-interface MenuDAO {
+public interface IMenuDao {
     @Select("select * from menu where id = #{id}")
     Menu findMenuById(@Param("id") long id);
 }

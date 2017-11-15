@@ -1,6 +1,7 @@
 package com.wind.auth.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+
 import com.wind.auth.dao.IMenuDao;
 import com.wind.auth.model.Menu;
 import com.wind.auth.service.IMenuService;
