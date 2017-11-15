@@ -5,6 +5,8 @@ import com.wind.auth.dao.IUserDao;
 import com.wind.auth.mapper.UserMapper;
 import com.wind.auth.model.User;
 import com.wind.dao.impl.BaseDao;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,6 +22,9 @@ import java.util.Map;
 public class UserDao extends BaseDao<User, Long> implements IUserDao {
     private static final String namespace = User.class.getName();
 
+    @Autowired
+    private UserMapper userMapper;
+
 
     @Override
     public List<User> find(Map<String, Object> params) {
@@ -32,9 +37,12 @@ public class UserDao extends BaseDao<User, Long> implements IUserDao {
     }
 
     public User findById(long id) {
-        UserMapper userMapper = getSqlSession().getMapper(UserMapper.class);
+
+        SqlSession sqlSession = getSqlSession();
+//        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user = userMapper.findById(id);
         System.out.println(userMapper.findById(id));
         return user;
+//        return null;
     }
 }

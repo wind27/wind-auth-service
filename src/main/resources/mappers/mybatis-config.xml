@@ -15,7 +15,7 @@
     </environments>
     <mappers>
         <!-- 注册映射接口，该接口文件包含了数据访问方法和SQL -->
-        <mapper class="com.wind.auth.mapper.UserMapper" />
-        <mapper class="com.wind.auth.mapper.MenuMapper" />
+        <!--<mapper class="com.wind.auth.mapper.UserMapper" />
+        <mapper class="com.wind.auth.mapper.MenuMapper" />-->
     </mappers>
 </configuration>

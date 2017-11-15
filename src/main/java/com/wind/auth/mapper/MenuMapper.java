@@ -1,7 +1,10 @@
 package com.wind.auth.mapper;
 
 import com.wind.auth.model.Menu;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.time.Instant;
 
@@ -11,7 +14,7 @@ import java.time.Instant;
  * @author qianchun
  * @date 17/11/15
  **/
-@Mapper
+//@Mapper
 public interface MenuMapper {
     @Select("select * from menu where id = #{id}")
     Menu findMenuById(@Param("id") long id);
