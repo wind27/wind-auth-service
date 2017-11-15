@@ -10,15 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author yangying
  * @date 2017/11/10.
  */
-@Service
+//@Service
 public class MenuService implements IMenuService {
 
-    @Autowired
-    private MenuDAO menuDAO;
+//    @Autowired
+//    private MenuDAO menuDAO;
 
     @Override
     public Menu findMenuItemById(long id) {
-        return menuDAO.findMenuById(id);
+//        return menuDAO.findMenuById(id);
+        return null;
     }
 }
 
