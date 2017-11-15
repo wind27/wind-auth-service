@@ -1,13 +1,13 @@
 package com.wind.auth.service.impl;
 
 //import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.config.annotation.Service;
 import com.wind.auth.dao.IUserDao;
 import com.wind.auth.dao.impl.LinkUserRoleDao;
 import com.wind.auth.model.LinkUserRole;
 import com.wind.auth.model.User;
 import com.wind.auth.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
