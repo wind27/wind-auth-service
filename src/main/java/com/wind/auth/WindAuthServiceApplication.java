@@ -42,7 +42,10 @@ public class WindAuthServiceApplication {
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
+
     public static void main(String[] args) {
+
+
         SpringApplication.run(WindAuthServiceApplication.class, args);
     }
 }
