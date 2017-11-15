@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author yangying
  * @date 2017/11/10.
  */
-//@Service
+@Service
 public class MenuService implements IMenuService {
 
 //    @Autowired

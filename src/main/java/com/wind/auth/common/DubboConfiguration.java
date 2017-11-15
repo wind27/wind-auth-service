@@ -36,7 +36,7 @@ public class DubboConfiguration {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress(zkRegisterAddress);
         registryConfig.setVersion(dubboVersion);
-//        registryConfig.setPort(dubboPort);
+        registryConfig.setPort(dubboPort);
         registryConfig.setProtocol(dubboProtocol);
         registryConfig.setTimeout(dubboTimeout);
         return registryConfig;
