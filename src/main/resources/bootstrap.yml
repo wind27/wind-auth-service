@@ -6,3 +6,8 @@
 #      uri:http://wind.com:6666/
 #      profile: dev
 #      label: master
+
+
+dubbo
+  user
+    version:21.0.0
