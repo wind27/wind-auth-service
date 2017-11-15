@@ -11,21 +11,21 @@ import org.springframework.context.annotation.ImportResource;
 		ErrorMvcAutoConfiguration.class, HttpEncodingAutoConfiguration.class,
 		HttpMessageConvertersAutoConfiguration.class, JacksonAutoConfiguration.class, MultipartAutoConfiguration.class,
 		ServerPropertiesAutoConfiguration.class, WebMvcAutoConfiguration.class })
-@ImportResource(locations = { "classpath*:spring/applicationContext-provider.xml"})
+//@ImportResource(locations = { "classpath*:spring/applicationContext-provider.xml"})
 @SpringBootApplication
 public class WindAuthServiceApplication {
 	public static void main(String[] args) {
-		try {
+//		try {
 			SpringApplication.run(WindAuthServiceApplication.class, args);
-			synchronized (WindAuthServiceApplication.class) {
-				while (true) {
-					WindAuthServiceApplication.class.wait();
-				}
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} finally {
-			System.out.println("******************************* stop ");
-		}
+//			synchronized (WindAuthServiceApplication.class) {
+//				while (true) {
+//					WindAuthServiceApplication.class.wait();
+//				}
+//			}
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		} finally {
+//			System.out.println("******************************* stop ");
+//		}
 	}
 }
