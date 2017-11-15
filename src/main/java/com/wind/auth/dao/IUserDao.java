@@ -13,4 +13,5 @@ public interface IUserDao extends IBaseDao<User, Long> {
 
     public List<User> find(Map<String, Object> params);
     public User findByUsername(String username);
+    public User findById(long id);
 }

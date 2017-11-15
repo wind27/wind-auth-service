@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author qianchun 17/9/18
  **/
-@Service
+@Service(version = "2.0.0")
 public class UserService implements IUserService {
     @Autowired
     private IUserDao userDao;

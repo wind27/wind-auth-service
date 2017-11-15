@@ -18,6 +18,9 @@
             </array>
         </property>
     </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.wind.auth.dao" />
+    </bean>
 
     <!--<dubbo:application name="wind-user-service"/>
     <dubbo:registry address="zookeeper://zk_server:2181"/>
