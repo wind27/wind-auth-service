@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class UserController {
-//    @Reference(version = "2.0.0")
-    @Autowired
+    @Reference(version = "2.0.0")
     private IUserService userService;
 
 

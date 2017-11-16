@@ -21,8 +21,8 @@ import org.springframework.stereotype.Repository;
 public class MenuDao extends BaseDao<Menu, Long> implements IMenuDao {
     @Override
     public Menu findMenuById(@Param("id") long id) {
-        // MenuMapper menuMapper = getSqlSession().getMapper(MenuMapper.class);
-        // return menuMapper.findById(id);
+         MenuMapper menuMapper = getSqlSession().getMapper(MenuMapper.class);
+//         return menuMapper.findById(id);
 
         return null;
     }

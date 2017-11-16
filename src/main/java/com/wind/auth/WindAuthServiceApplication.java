@@ -16,11 +16,11 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
-@Import({ DispatcherServletAutoConfiguration.class, EmbeddedServletContainerAutoConfiguration.class,
+@Import({DispatcherServletAutoConfiguration.class, EmbeddedServletContainerAutoConfiguration.class,
         ErrorMvcAutoConfiguration.class, HttpEncodingAutoConfiguration.class,
         HttpMessageConvertersAutoConfiguration.class, JacksonAutoConfiguration.class, MultipartAutoConfiguration.class,
-        ServerPropertiesAutoConfiguration.class, WebMvcAutoConfiguration.class })
-@SpringBootApplication(scanBasePackages="com.wind")
+        ServerPropertiesAutoConfiguration.class, WebMvcAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = "com.wind")
 @MapperScan("com.wind.auth.mapper")
 @DubboComponentScan(basePackages = "com.wind.auth.service.impl")
 public class WindAuthServiceApplication {
