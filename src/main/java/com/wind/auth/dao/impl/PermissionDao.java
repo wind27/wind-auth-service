@@ -14,7 +14,6 @@ import java.util.List;
  * @author qianchun 17/7/13
  **/
 @DAO(catalog = "wind_auth")
-@Repository
 public class PermissionDao extends BaseDao<Permission, Long> implements IPermissionDao {
     private static final String namespace = Permission.class.getName();
 

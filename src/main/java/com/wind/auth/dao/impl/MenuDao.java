@@ -17,7 +17,6 @@ import org.springframework.stereotype.Repository;
  * @date 17/11/15
  **/
 @DAO(catalog = "wind_auth")
-@Repository
 public class MenuDao extends BaseDao<Menu, Long> implements IMenuDao {
     @Override
     public Menu findMenuById(@Param("id") long id) {

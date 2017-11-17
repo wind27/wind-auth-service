@@ -18,7 +18,6 @@ import java.util.Map;
  * @author qianchun 17/7/13
  **/
 @DAO(catalog = "wind_auth")
-@Repository
 public class UserDao extends BaseDao<User, Long> implements IUserDao {
     private static final String namespace = User.class.getName();
 

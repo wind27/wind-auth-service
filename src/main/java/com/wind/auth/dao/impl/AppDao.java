@@ -14,7 +14,6 @@ import java.util.List;
  * @author qianchun 17/7/13
  **/
 @DAO(catalog = "wind_auth")
-@Repository
 public class AppDao extends BaseDao<App, Long> implements IAppDao {
     private static final String namespace = App.class.getName();
 

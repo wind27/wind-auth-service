@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2017/11/15.
  */
 @Configuration
-public class DubboConfiguration {
+public class ProviderDubboConfiguration {
 
     @Value("${dubbo.registry.address}")
     private String zkRegisterAddress;
@@ -23,11 +23,13 @@ public class DubboConfiguration {
     private int dubboPort;
     @Value("${dubbo.timeout}")
     private int dubboTimeout;
+    @Value("${dubbo.application.name}")
+    private String applicationName;
 
     @Bean
     public ApplicationConfig applicationConfig() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("provider-test");
+        applicationConfig.setName(applicationName);
         return applicationConfig;
     }
 

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
  * @author qianchun 17/7/13
  **/
 @DAO(catalog = "wind_auth")
-@Repository
 public class LinkUserRoleDao extends BaseDao<LinkUserRole, Long> {
     private static final String namespace = LinkUserRole.class.getName();
 }

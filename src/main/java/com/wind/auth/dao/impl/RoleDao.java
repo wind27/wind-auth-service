@@ -15,7 +15,6 @@ import java.util.List;
  * @author qianchun 17/7/13
  **/
 @DAO(catalog = "wind_auth")
-@Repository
 public class RoleDao extends BaseDao<Role, Long> implements IRoleDao {
     private static final String namespace = Role.class.getName();
 

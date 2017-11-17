@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
         ErrorMvcAutoConfiguration.class, HttpEncodingAutoConfiguration.class,
         HttpMessageConvertersAutoConfiguration.class, JacksonAutoConfiguration.class, MultipartAutoConfiguration.class,
         ServerPropertiesAutoConfiguration.class, WebMvcAutoConfiguration.class})
-@SpringBootApplication(scanBasePackages = "com.wind")
+@SpringBootApplication
 @MapperScan("com.wind.auth.mapper")
 @DubboComponentScan(basePackages = "com.wind.auth.service.impl")
 public class WindAuthServiceApplication {
