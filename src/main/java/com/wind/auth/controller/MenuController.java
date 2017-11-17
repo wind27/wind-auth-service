@@ -10,11 +10,9 @@ import com.wind.common.ErrorCode;
 import com.wind.utils.JsonResponseUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +36,7 @@ public class MenuController {
     }
 
     @RequestMapping("/menu/list")
-    public String list(@Param("ids") List<Long> ids) {
+    public String list(@RequestParam("ids") ArrayList<Long> ids) {
         Map<String, Object> params = new HashMap<>();
         params.put("ids", ids);
         List<Menu> menuList = menuService.find(params);
@@ -46,17 +44,52 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/menu/add", method = RequestMethod.POST)
-    public String add(@Param("menu") Menu menu) {
-        if (menu != null) {
-            int id = menuService.insert(menu);
-            System.out.print("============================"+ JSONObject.toJSONString(menu));
-            return JsonResponseUtil.ok();
+    public String add(@RequestParam("menu") Menu menu) {
+        if (menu == null) {
+            return JsonResponseUtil.fail(ErrorCode.ERROR);
         }
-        return JsonResponseUtil.fail(ErrorCode.ERROR);
+        menuService.insert(menu);
+        System.out.print("============================" + JSONObject.toJSONString(menu));
+        return JsonResponseUtil.ok();
     }
 
-    public String delete(@Param("id") int id ){
-        return null;
+    @RequestMapping(value = "/menu/delete", method = RequestMethod.DELETE)
+    public String delete(@RequestParam("menu") Menu menu) {
+        if (menu == null) {
+            return JsonResponseUtil.fail(ErrorCode.ERROR);
+        }
+        menuService.delete(menu);
+        System.out.print("----------------" + JSONObject.toJSONString(menu));
+        return JsonResponseUtil.ok();
     }
 
+    @RequestMapping(value = "/menu/enable", method = RequestMethod.PUT)
+    public String enable(@RequestParam("menu") Menu menu) {
+        if (menu == null) {
+            return JsonResponseUtil.fail(ErrorCode.ERROR);
+        }
+         menuService.enable(menu);
+        System.out.print("----------------" + JSONObject.toJSONString(menu));
+        return JsonResponseUtil.ok();
+    }
+
+    @RequestMapping(value = "menu/disable", method = RequestMethod.PUT)
+    public String disable(@RequestParam("menu") Menu menu) {
+        if (menu == null) {
+            return JsonResponseUtil.fail(ErrorCode.ERROR);
+        }
+       menuService.disable(menu);
+        System.out.print("----------------" + JSONObject.toJSONString(menu));
+        return JsonResponseUtil.ok();
+    }
+
+    @RequestMapping(value = "menu/update", method = RequestMethod.PUT)
+    public String update(@RequestParam("menu") Menu menu) {
+        if (menu == null) {
+            return JsonResponseUtil.fail(ErrorCode.ERROR);
+        }
+        menuService.update(menu);
+        System.out.print("----------------" + JSONObject.toJSONString(menu));
+        return JsonResponseUtil.ok(menu);
+    }
 }

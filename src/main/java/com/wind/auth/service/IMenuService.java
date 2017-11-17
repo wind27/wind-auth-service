@@ -10,17 +10,17 @@ import java.util.Map;
  * @date 2017/11/10.
  */
 public interface IMenuService {
-    int insert(Menu menu);
+    boolean insert(Menu menu);
 
-    int delete (long id);
+    boolean delete (Menu menu);
 
-    int enable(long id);
+    boolean enable(Menu menu);
 
-    int disable(long id);
+    boolean disable(Menu menu);
 
     Menu findById(long id);
 
-    int update(Menu menu);
+    boolean update(Menu menu);
 
     List<Menu> find(Map<String, Object> params);
 }

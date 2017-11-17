@@ -2,8 +2,8 @@ package com.wind.auth.mapper;
 
 import com.wind.auth.model.Menu;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 
@@ -30,14 +30,14 @@ public interface MenuMapper {
     @Options(useGeneratedKeys=true, keyProperty="menu.id")
     int insert(@Param("menu") Menu menu);
 
-    @Delete("delete from menu where id = #{id}")
-    int delete(@Param("id") long id);
+    @Delete("delete from menu where id = #{menu.id}")
+    int delete(@Param("menu") Menu menu);
 
-    @Update("update menu set status=1 where id = #{id}")
-    int enable(@Param("id") long id);
+    @Update("update menu set status=1 where id = #{menu.id}")
+    int enable(@Param("menu") Menu menu);
 
-    @Update("update menu set status=0 where id = #{id}")
-    int disable(@Param("id") long id);
+    @Update("update menu set status=0 where id = #{menu.id}")
+    int disable(@Param("menu") Menu menu);
 
     @Update("update menu set name = #{menu.name} where id = #{menu.id}")
     int update(@Param("menu") Menu menu);
