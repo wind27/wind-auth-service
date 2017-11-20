@@ -33,17 +33,16 @@ public interface MenuMapper {
     @Delete("delete from menu where id = #{id}")
     int delete(@Param("id") long id);
 
-    @Update("update menu set status=1 where id = #{id}")
+    @Update("update menu set status=1, update_time=now() where id = #{id}")
     int enable(@Param("id") long id);
 
-    @Update("update menu set status=0 where id = #{id}")
+    @Update("update menu set status=0, update_time=now() where id = #{id}")
     int disable(@Param("id") long id);
 
-    @Update("update menu set name = #{menu.name} where id = #{menu.id}")
+    @Update("update menu set name = #{menu.name}, url=#{menu.url}, parent_id=#{menu.parentId}, app_id=#{menu.appId}, update_time=now() where id = #{menu.id}")
     int update(@Param("menu") Menu menu);
 
     @Select("<script>"+SELECT_COLUMNS
-//            + "<when test='${params.ids!=null}'> AND id = #{params.ids}</when>"
             + "<when test='params.status!=null'> AND status = #{params.status}</when>"+"</script>")
     List<Menu> find(@Param("params") Map<String, Object> params);
 }
