@@ -6,17 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author yangying
- * @date 2017/11/10.
+ * @author yangying 2017/11/10.
  */
 public interface IMenuService {
+    boolean add(Menu menu);
+
     boolean insert(Menu menu);
 
-    boolean delete (Menu menu);
+    boolean delete (long id);
 
-    boolean enable(Menu menu);
+    boolean enable(long id);
 
-    boolean disable(Menu menu);
+    boolean disable(long id);
 
     Menu findById(long id);
 
