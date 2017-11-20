@@ -9,6 +9,8 @@ import java.util.Map;
  * @author yangying 2017/11/10.
  */
 public interface IMenuService {
+    boolean add(Menu menu);
+
     boolean insert(Menu menu);
 
     boolean delete (long id);
