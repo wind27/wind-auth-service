@@ -29,27 +29,27 @@ public class MenuService implements IMenuService {
 
     @Override
     public boolean insert(Menu menu) {
-        return menuMapper.insert(menu)>0?true:false;
+        return menuMapper.insert(menu) > 0 ? true : false;
     }
 
     @Override
     public boolean delete(Menu menu) {
-        return menuMapper.delete(menu)>0?true:false;
+        return menuMapper.delete(menu) > 0 ? true : false;
     }
 
     @Override
-    public boolean enable(Menu menu ){
-        return menuMapper.enable(menu)>0?true:false;
+    public boolean enable(Menu menu) {
+        return menuMapper.enable(menu) > 0 ? true : false;
     }
 
     @Override
     public boolean disable(Menu menu) {
-        return menuMapper.disable(menu)>0?true:false;
+        return menuMapper.disable(menu) > 0 ? true : false;
     }
 
     @Override
     public boolean update(Menu menu) {
-        return menuMapper.update(menu)>0?true:false;
+        return menuMapper.update(menu) > 0 ? true : false;
     }
 
     @Override
