@@ -1,9 +1,11 @@
 package com.wind.auth.service.impl;
 
 //import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.wind.auth.dao.IUserDao;
 import com.wind.auth.dao.impl.LinkUserRoleDao;
+import com.wind.auth.mapper.UserMapper;
 import com.wind.auth.model.LinkUserRole;
 import com.wind.auth.model.User;
 import com.wind.auth.service.IUserService;
@@ -19,30 +21,32 @@ import java.util.List;
 @Service(version = "2.0.0")
 public class UserService implements IUserService {
     @Autowired
-    private IUserDao userDao;
-
-    @Autowired
-    private LinkUserRoleDao linkUserRoleDao;
+    private UserMapper userMapper;
 
     @Override
     public User findById(long id) {
-        return userDao.findById(id);
+        return userMapper.findById(id);
     }
 
     @Override
-    public User save(User user) {
-        return userDao.insert(user);
+    public User findUsername(String username) {
+        return userMapper.findUsername(username);
     }
 
     @Override
-    public LinkUserRole save(LinkUserRole linkUserRole) {
-        return linkUserRoleDao.insert(linkUserRole);
+    public boolean save(User user) {
+        return userMapper.insert(user)>0;
     }
 
-    @Override
-    public boolean batchSave(List<LinkUserRole> userRoleList) {
-        return linkUserRoleDao.batchInsert(userRoleList);
-    }
+//    @Override
+//    public LinkUserRole save(LinkUserRole linkUserRole) {
+//        return linkUserRoleDao.insert(linkUserRole);
+//    }
+
+//    @Override
+//    public boolean batchSave(List<LinkUserRole> userRoleList) {
+//        return linkUserRoleDao.batchInsert(userRoleList);
+//    }
 
 
 }

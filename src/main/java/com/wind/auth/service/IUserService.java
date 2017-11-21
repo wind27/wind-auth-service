@@ -13,9 +13,10 @@ import java.util.List;
  * @author qianchun 17/9/18
  **/
 public interface IUserService {
-    User save(User user);
+    User findUsername(String username);
+    boolean save(User user);
     User findById(long id);
-    LinkUserRole save(LinkUserRole linkUserRole);
-    boolean batchSave(List<LinkUserRole> linkUserRoleList);
+//    LinkUserRole save(LinkUserRole linkUserRole);
+//    boolean batchSave(List<LinkUserRole> linkUserRoleList);
 }
 

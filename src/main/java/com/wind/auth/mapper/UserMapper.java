@@ -1,6 +1,7 @@
 package com.wind.auth.mapper;
 
 import com.wind.auth.model.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,7 +14,16 @@ import org.apache.ibatis.session.SqlSessionFactory;
  **/
 @Mapper
 public interface UserMapper {
-    @Select("select * from user where id = #{id}")
+    String SELECT_COLUMNS = "SELECT id,name,status,app_id,url,create_time,update_time,parent_id FROM menu where 1=1 ";
+
+    String INSERT_COLUMNS = " INSERT INTO user(username, realname, salt, password, status, create_time, update_time, mobile, idcard, email) VALUES  ";
+
+    @Insert(INSERT_COLUMNS+"(#{user.username}, #{user.realname}, #{user.salt}, #{user.password}, #{user.status}, now(), now(), #{user.mobile}, #{user.idcard}, #{user.email})")
+    public int insert(@Param("user") User user);
+
+    @Select(SELECT_COLUMNS+"and id = #{id} limit 0, 1")
     public User findById(@Param("id") long id);
 
+    @Select(SELECT_COLUMNS+"and username = #{username} limit 0, 1")
+    public User findUsername(@Param("username") String username);
 }
