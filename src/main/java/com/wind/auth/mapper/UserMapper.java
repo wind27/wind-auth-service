@@ -14,16 +14,18 @@ import org.apache.ibatis.session.SqlSessionFactory;
  **/
 @Mapper
 public interface UserMapper {
-    String SELECT_COLUMNS = "SELECT id,name,status,app_id,url,create_time,update_time,parent_id FROM menu where 1=1 ";
+    String SELECT_COLUMNS = "SELECT id,username,realname, salt, password,status,create_time, update_time, mobile, idcard, email  FROM user where 1=1 ";
+
+    String SELECT_COLUMNS_WITHOUT_PASSWORD = "SELECT id,username,realname, salt,status,create_time, update_time, mobile, idcard, email  FROM user where 1=1 ";
 
     String INSERT_COLUMNS = " INSERT INTO user(username, realname, salt, password, status, create_time, update_time, mobile, idcard, email) VALUES  ";
 
     @Insert(INSERT_COLUMNS+"(#{user.username}, #{user.realname}, #{user.salt}, #{user.password}, #{user.status}, now(), now(), #{user.mobile}, #{user.idcard}, #{user.email})")
     public int insert(@Param("user") User user);
 
-    @Select(SELECT_COLUMNS+"and id = #{id} limit 0, 1")
+    @Select(SELECT_COLUMNS_WITHOUT_PASSWORD+"and id = #{id} limit 0, 1")
     public User findById(@Param("id") long id);
 
     @Select(SELECT_COLUMNS+"and username = #{username} limit 0, 1")
-    public User findUsername(@Param("username") String username);
+    public User findByUsername(@Param("username") String username);
 }

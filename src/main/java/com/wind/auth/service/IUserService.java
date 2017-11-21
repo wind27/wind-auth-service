@@ -13,7 +13,7 @@ import java.util.List;
  * @author qianchun 17/9/18
  **/
 public interface IUserService {
-    User findUsername(String username);
+    User findByUsername(String username);
     boolean save(User user);
     User findById(long id);
 //    LinkUserRole save(LinkUserRole linkUserRole);
