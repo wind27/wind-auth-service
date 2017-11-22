@@ -45,7 +45,7 @@ public class Menu extends BaseObject {
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private Instant updateTime;
 
     /**
      * 上一级ID 根目录0
@@ -84,11 +84,11 @@ public class Menu extends BaseObject {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public Instant getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Instant updateTime) {
         this.updateTime = updateTime;
     }
 
