@@ -8,7 +8,7 @@
             <id>public</id>
             <mirrorOf>central</mirrorOf>
             <name>internal nexus repository</name>
-            <url>http://wind.com:8081/repository/maven-central/</url>
+            <url>http://172.16.35.82:8081/repository/maven-central/</url>
         </mirror>
     </mirrors>
 
