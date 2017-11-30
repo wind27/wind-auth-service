@@ -30,11 +30,11 @@
 	<distributionManagement>
 		<repository>
 			<id>maven-releases</id>
-			<url>http://wind.com:8081/repository/maven-central/</url>
+			<url>http://172.16.35.82:8081/repository/maven-central/</url>
 		</repository>
 		<snapshotRepository>
 			<id>maven-snapshots</id>
-			<url>http://wind.com:8081/repository/maven-snapshots/</url>
+			<url>http://172.16.35.82:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -145,7 +145,7 @@
 						</goals>
 						<configuration>
 							<repositoryId>maven-snapshots</repositoryId>
-							<url>http://wind.com:8081/repository/maven-snapshots/</url>
+							<url>http://172.16.35.82:8081/repository/maven-snapshots/</url>
 							<file>target/wind-auth-service-0.0.1-SNAPSHOT-service-jar.jar</file>
 							<pomFile>src/main/resources/assembly/assembly-api.xml</pomFile>
 						</configuration>
