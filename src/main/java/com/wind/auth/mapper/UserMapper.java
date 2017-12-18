@@ -34,6 +34,6 @@ public interface UserMapper {
             + "<when test='params.status!=null'> AND status = #{params.status}</when>"+"</script>")
     List<User> find(@Param("params") Map<String, Object> params);
 
-    @Update("UPDATE user SET realname=#{user.realname}, email=#{user.email}, mobile=#{user.mobile}, status=#{user.status} update_time=now() WHERE id = #{user.id}")
+    @Update("UPDATE user SET realname=#{user.realname}, email=#{user.email}, mobile=#{user.mobile}, status=#{user.status}, update_time=now() WHERE id = #{user.id}")
     int update(@Param("user") User user);
 }
