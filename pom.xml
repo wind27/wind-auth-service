@@ -17,14 +17,13 @@
 		<version>1.5.8.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-
 		<druid-version>1.0.18</druid-version>
 		<mysql-connector-java-version>5.1.37</mysql-connector-java-version>
+		<jarTarget>target</jarTarget>
 	</properties>
 
 	<distributionManagement>
