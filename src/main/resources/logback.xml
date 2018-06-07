@@ -52,7 +52,7 @@
         <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
             <dataSource class="org.apache.tomcat.jdbc.pool.DataSource">
                 <driverClass>com.mysql.jdbc.Driver</driverClass>
-                <url>jdbc:mysql://mysql-5.7.22:3306/wind_auth</url>
+                <url>jdbc:mysql://mysql:3306/wind_auth</url>
                 <user>root</user>
                 <password>123456</password>
             </dataSource>
