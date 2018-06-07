@@ -48,7 +48,7 @@
     </root>
 
     <!--日志异步到数据库 -->
-    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+    <!--<appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
         <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
             <dataSource class="org.apache.tomcat.jdbc.pool.DataSource">
                 <driverClass>com.mysql.jdbc.Driver</driverClass>
@@ -57,5 +57,5 @@
                 <password>123456</password>
             </dataSource>
         </connectionSource>
-    </appender>
+    </appender>-->
 </configuration>
