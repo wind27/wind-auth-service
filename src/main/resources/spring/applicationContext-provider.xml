@@ -11,7 +11,7 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <context:component-scan base-package="com.wind" />
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <array>
                 <value>classpath:application.properties</value>
@@ -19,17 +19,12 @@
         </property>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.wind.auth.dao" />
+        <property name="basePackage" value="com.wind.auth.mapper" />
     </bean>
 
-    <!--<dubbo:application name="wind-user-service"/>
-    <dubbo:registry address="zookeeper://zk_server:2181"/>
-
-    <dubbo:service interface="com.wind.auth.service.IUserService" ref="userService"
-                   version="2.0.0" timeout="5000" retries="3"/>-->
     <dubbo:application name="${dubbo.provider.application.name}"/>
     <dubbo:registry address="${dubbo.registry.address}"/>
 
     <dubbo:service interface="com.wind.auth.service.IUserService" ref="userService"
-                   version="${dubbo.user.version}" timeout="${dubbo.timeout}" retries="${dubbo.retries}"/>
+                   version="${dubbo.user.version}" timeout="${dubbo.timeout}" retries="${dubbo.retries}"/>-->
 </beans>

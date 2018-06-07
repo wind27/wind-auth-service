@@ -11,14 +11,14 @@ import com.wind.auth.model.App;
  **/
 public interface IAppService {
     /**
-     * @param app
-     * @return
+     * @param app app
+     * @return 返回操作结果
      */
-    App save(App app);
+    boolean save(App app);
 
     /**
-     * @param id
-     * @return
+     * @param id 主键id
+     * @return 返回结果
      */
     App findById(long id);
 }

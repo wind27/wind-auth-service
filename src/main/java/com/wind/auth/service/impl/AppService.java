@@ -1,6 +1,6 @@
 package com.wind.auth.service.impl;
 
-import com.wind.auth.dao.IAppDao;
+import com.wind.auth.mapper.AppMapper;
 import com.wind.auth.model.App;
 import com.wind.auth.service.IAppService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +15,14 @@ import org.springframework.stereotype.Service;
 public class AppService implements IAppService {
 
     @Autowired
-    private IAppDao appDao;
+    private AppMapper appMapper;
     @Override
-    public App save(App app) {
-        return appDao.insert(app);
+    public boolean save(App app) {
+        return appMapper.insert(app)>0;
     }
 
     @Override
     public App findById(long id) {
-        return appDao.findById(id);
+        return appMapper.selectByPrimaryKey(id);
     }
 }

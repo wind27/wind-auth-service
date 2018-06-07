@@ -1,2 +1,12 @@
-#server:
-#  port: 7300
+spring:
+  datasource:
+    url:
+      jdbc:mysql://mysql-5.7.22:3306/wind_auth?useUnicode=true&characterEncoding=utf8
+    username:
+      root
+    password:
+      123456
+    driver-class-name:
+      com.mysql.jdbc.Driver
+server:
+  port: 8088

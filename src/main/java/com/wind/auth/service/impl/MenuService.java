@@ -1,9 +1,7 @@
 package com.wind.auth.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-
-import com.wind.auth.dao.IMenuDao;
-import com.wind.auth.mapper.MenuMapper;
+import com.wind.auth.mapper.MenuMapperEx;
 import com.wind.auth.model.Menu;
 import com.wind.auth.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +10,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author yangying
- * @date 2017/11/10.
+ * @author yangying 2017/11/10.
  */
-@Service(version = "2.0.0")
+//@Service(version = "2.0.0")
+@org.springframework.stereotype.Service
 public class MenuService implements IMenuService {
 
     @Autowired
-    private MenuMapper menuMapper;
+    private MenuMapperEx menuMapper;
 
     @Override
     public Menu findById(long id) {
-        return menuMapper.findById(id);
+        return menuMapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -38,22 +36,22 @@ public class MenuService implements IMenuService {
 
     @Override
     public boolean delete(long id) {
-        return menuMapper.delete(id) > 0;
+        return menuMapper.deleteByPrimaryKey(id) > 0;
     }
 
     @Override
     public boolean enable(long id) {
-        return menuMapper.enable(id) > 0;
+        return menuMapper.updateStatus(id, 1) > 0;
     }
 
     @Override
     public boolean disable(long id) {
-        return menuMapper.disable(id) > 0;
+        return menuMapper.updateStatus(id, 0) > 0;
     }
 
     @Override
     public boolean update(Menu menu) {
-        return menuMapper.update(menu) > 0;
+        return menuMapper.updateByPrimaryKey(menu) > 0;
     }
 
     @Override

@@ -10,38 +10,38 @@ import org.springframework.context.annotation.Configuration;
  * @author yangying
  * @date 2017/11/15.
  */
-@Configuration
+//@Configuration
 public class ProviderDubboConfiguration {
 
-    @Value("${dubbo.registry.address}")
-    private String zkRegisterAddress;
-    @Value("${dubbo.user.version}")
-    private String dubboVersion;
-    @Value("${dubbo.protocol}")
-    private String dubboProtocol;
-    @Value("${dubbo.protocol.port}")
-    private int dubboPort;
-    @Value("${dubbo.timeout}")
-    private int dubboTimeout;
-    @Value("${dubbo.application.name}")
-    private String applicationName;
-
-    @Bean
-    public ApplicationConfig applicationConfig() {
-        ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName(applicationName);
-        return applicationConfig;
-    }
-
-    @Bean
-    public RegistryConfig registryConfig() {
-        RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress(zkRegisterAddress);
-        registryConfig.setCheck(false);
-//        registryConfig.setVersion(dubboVersion);
-//        registryConfig.setPort(dubboPort);
-//        registryConfig.setProtocol(dubboProtocol);
-        registryConfig.setTimeout(dubboTimeout);
-        return registryConfig;
-    }
+//    @Value("${dubbo.registry.address}")
+//    private String zkRegisterAddress;
+//    @Value("${dubbo.user.version}")
+//    private String dubboVersion;
+//    @Value("${dubbo.protocol}")
+//    private String dubboProtocol;
+//    @Value("${dubbo.protocol.port}")
+//    private int dubboPort;
+//    @Value("${dubbo.timeout}")
+//    private int dubboTimeout;
+//    @Value("${dubbo.application.name}")
+//    private String applicationName;
+//
+//    @Bean
+//    public ApplicationConfig applicationConfig() {
+//        ApplicationConfig applicationConfig = new ApplicationConfig();
+//        applicationConfig.setName(applicationName);
+//        return applicationConfig;
+//    }
+//
+//    @Bean
+//    public RegistryConfig registryConfig() {
+//        RegistryConfig registryConfig = new RegistryConfig();
+//        registryConfig.setAddress(zkRegisterAddress);
+//        registryConfig.setCheck(false);
+////        registryConfig.setVersion(dubboVersion);
+////        registryConfig.setPort(dubboPort);
+////        registryConfig.setProtocol(dubboProtocol);
+//        registryConfig.setTimeout(dubboTimeout);
+//        return registryConfig;
+//    }
 }

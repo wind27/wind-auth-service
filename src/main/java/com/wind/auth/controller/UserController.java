@@ -28,7 +28,7 @@ public class UserController {
         if(id<=0) {
             return JsonResponseUtil.fail(ErrorCode.PARAM_ERROR);
         }
-        User user = userService.findById(1);
+        User user = userService.findById(id);
         if(user==null) {
             return JsonResponseUtil.fail(ErrorCode.PARAM_ERROR);
         }

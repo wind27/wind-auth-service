@@ -22,7 +22,7 @@ import org.springframework.transaction.PlatformTransactionManager;
         ServerPropertiesAutoConfiguration.class, WebMvcAutoConfiguration.class})
 @SpringBootApplication
 @MapperScan("com.wind.auth.mapper")
-@DubboComponentScan(basePackages = "com.wind.auth.service.impl")
+//@DubboComponentScan(basePackages = "com.wind.auth.service.impl")
 public class WindAuthServiceApplication {
 
     @Bean
@@ -44,8 +44,6 @@ public class WindAuthServiceApplication {
     }
 
     public static void main(String[] args) {
-
-
         SpringApplication.run(WindAuthServiceApplication.class, args);
     }
 }
