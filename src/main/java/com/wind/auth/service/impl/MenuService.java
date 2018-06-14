@@ -12,8 +12,7 @@ import java.util.Map;
 /**
  * @author yangying 2017/11/10.
  */
-//@Service(version = "2.0.0")
-@org.springframework.stereotype.Service
+@Service(version = "2.0.0")
 public class MenuService implements IMenuService {
 
     @Autowired

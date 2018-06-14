@@ -1,10 +1,10 @@
 package com.wind.auth.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.wind.auth.mapper.AppMapper;
 import com.wind.auth.model.App;
 import com.wind.auth.service.IAppService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * AppService

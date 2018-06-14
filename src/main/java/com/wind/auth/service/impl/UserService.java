@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * @author qianchun 17/9/18
  **/
-//@Service(version = "2.0.0")
+@Service(version = "2.0.0")
 @org.springframework.stereotype.Service
 public class UserService implements IUserService {
     @Autowired

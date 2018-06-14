@@ -1,5 +1,6 @@
 package com.wind.auth;
 
+import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.web.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
@@ -20,7 +22,9 @@ import org.springframework.transaction.PlatformTransactionManager;
         ServerPropertiesAutoConfiguration.class, WebMvcAutoConfiguration.class})
 @SpringBootApplication
 @MapperScan("com.wind.auth.mapper")
-//@DubboComponentScan(basePackages = "com.wind.auth.service.impl")
+@DubboComponentScan(basePackages = "com.wind.auth.service.impl")
+
+//@ImportResource(locations={"classpath:spring/applicationContext-*.xml"})
 public class Application {
 
     @Bean

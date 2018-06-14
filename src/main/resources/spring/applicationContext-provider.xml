@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <context:component-scan base-package="com.wind" />
+    <context:component-scan base-package="com.wind"/>
 
     <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -17,14 +17,18 @@
                 <value>classpath:application.properties</value>
             </array>
         </property>
-    </bean>
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.wind.auth.mapper" />
-    </bean>
+    </bean>-->
 
-    <dubbo:application name="${dubbo.provider.application.name}"/>
-    <dubbo:registry address="${dubbo.registry.address}"/>
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.wind.auth.mapper"/>
+    </bean>-->
+    <dubbo:application name="${dubbo.application.name}"/>
+    <dubbo:provider version="${dubbo.user.version}" retries="${dubbo.retries}" timeout="${dubbo.timeout}"
+                    protocol="${dubbo.protocol}" port="${dubbo.protocol.port}" register="${dubbo.registry.address}"/>
+
+
+    <!--<dubbo:registry address="${dubbo.registry.address}"/>-->
 
     <dubbo:service interface="com.wind.auth.service.IUserService" ref="userService"
-                   version="${dubbo.user.version}" timeout="${dubbo.timeout}" retries="${dubbo.retries}"/>-->
+                   version="${dubbo.user.version}" timeout="${dubbo.timeout}" retries="${dubbo.retries}"/>
 </beans>
