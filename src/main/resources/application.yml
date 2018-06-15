@@ -9,7 +9,7 @@
 #    driver-class-name:
 #      com.mysql.jdbc.Driver
 server:
-  port: 8089
+  port: 8080
 
 apollo:
   bootstrap:
