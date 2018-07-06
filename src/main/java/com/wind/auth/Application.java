@@ -24,7 +24,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @MapperScan("com.wind.auth.mapper")
 @DubboComponentScan(basePackages = "com.wind.auth.service.impl")
 
-//@ImportResource(locations={"classpath:spring/applicationContext-*.xml"})
+@ImportResource(locations={"classpath:spring/applicationContext-*.xml"})
 public class Application {
 
     @Bean
