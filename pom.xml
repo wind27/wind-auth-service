@@ -26,19 +26,18 @@
 		<logback-version>1.3.0-alpha4</logback-version>
 		<jarTarget>target</jarTarget>
 		<apollo-client-version>0.11.0-SNAPSHOT</apollo-client-version>
-		<version></version>
 	</properties>
 
-	<!--<distributionManagement>
+	<distributionManagement>
 		<repository>
-			<id>maven-releases</id>
+			<id>releases</id>
 			<url>http://nexus:8081/repository/maven-public/</url>
 		</repository>
 		<snapshotRepository>
-			<id>maven-snapshots</id>
+			<id>snapshots</id>
 			<url>http://nexus:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
-	</distributionManagement>-->
+	</distributionManagement>
 	<dependencies>
 
 		<dependency>
@@ -52,12 +51,11 @@
 			<artifactId>wind-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>com.gitee.reger</groupId>
-			<artifactId>spring-boot-starter-dubbo</artifactId>
-			<version>1.0.8</version>
-		</dependency>-->
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -68,6 +66,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
 			<version>2.5.7</version>
@@ -77,15 +81,7 @@
 			<artifactId>zkclient</artifactId>
 			<version>0.10</version>
 		</dependency>
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>1.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
@@ -96,25 +92,18 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java-version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.ctrip.framework.apollo</groupId>
 			<artifactId>apollo-client</artifactId>
 			<version>${apollo-client-version}</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback-version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${logback-version}</version>
-		</dependency>-->
-
-
 	</dependencies>
 	<build>
 		<directory>${jarTarget}</directory>
