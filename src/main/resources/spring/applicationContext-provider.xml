@@ -11,27 +11,12 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <context:component-scan base-package="com.wind"/>
 
-    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <array>
-                <value>classpath:application.properties</value>
-            </array>
-        </property>
-    </bean>-->
-
-    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.wind.auth.mapper"/>
-    </bean>-->
     <dubbo:application name="${dubbo.application.name}"/>
 
-    <dubbo:registry address="${dubbo.registry.address}" />
-    <dubbo:protocol name="${dubbo.protocol}" port="${dubbo.protocol.port}" />
+    <dubbo:registry address="${dubbo.registry.address}" port="${dubbo.protocol.port}" protocol="${dubbo.protocol}"/>
 
 
     <dubbo:provider version="${dubbo.user.version}" retries="${dubbo.retries}" timeout="${dubbo.timeout}"/>
-
-
-    <!--<dubbo:registry address="${dubbo.registry.address}"/>-->
 
     <dubbo:service interface="com.wind.auth.service.IUserService" ref="userService"
                    version="${dubbo.user.version}" timeout="${dubbo.timeout}" retries="${dubbo.retries}"/>
