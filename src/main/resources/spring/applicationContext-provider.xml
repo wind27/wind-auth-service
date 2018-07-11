@@ -23,8 +23,12 @@
         <property name="basePackage" value="com.wind.auth.mapper"/>
     </bean>-->
     <dubbo:application name="${dubbo.application.name}"/>
-    <dubbo:provider version="${dubbo.user.version}" retries="${dubbo.retries}" timeout="${dubbo.timeout}"
-                    protocol="${dubbo.protocol}" port="${dubbo.protocol.port}" register="${dubbo.registry.address}"/>
+
+    <dubbo:registry address="${dubbo.registry.address}" />
+    <dubbo:protocol name="${dubbo.protocol}" port="${dubbo.protocol.port}" />
+
+
+    <dubbo:provider version="${dubbo.user.version}" retries="${dubbo.retries}" timeout="${dubbo.timeout}"/>
 
 
     <!--<dubbo:registry address="${dubbo.registry.address}"/>-->
