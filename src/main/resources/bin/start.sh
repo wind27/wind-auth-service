@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pid=`ps -aux|grep wind-auth-service| grep -v grep | awk '{print $2}'`
-if [ $pid ]; then
+if [ -n "$pid" ]; then
 	echo "server is starting"
 	exit 0
 fi
