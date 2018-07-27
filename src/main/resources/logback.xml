@@ -11,10 +11,10 @@
 
     <!-- 按照每天生成日志文件 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${logBase}/wind-auth-service.log</file>
+        <file>${logBase}/auth-service.log</file>
         <append>true</append>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logBase}/wind-auth-service.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <fileNamePattern>${logBase}/auth-service.log.%d{yyyy-MM-dd}</fileNamePattern>
         </rollingPolicy>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
