@@ -112,7 +112,10 @@
 				<configuration>
 					<archive>
 						<manifest>
+							<mainClass>com.wind.auth.Application</mainClass>
 							<useUniqueVersions>false</useUniqueVersions>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
 					</archive>
 				</configuration>
