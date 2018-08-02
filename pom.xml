@@ -2,8 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.wind</groupId>
 	<artifactId>wind-auth-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -16,13 +14,11 @@
 		<artifactId>wind-root-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
 	<properties>
+		<jarTarget>target</jarTarget>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,16 +36,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.wind</groupId>
 			<artifactId>wind-framework</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.wind</groupId>
 			<artifactId>wind-commons</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
@@ -58,7 +53,6 @@
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
@@ -77,7 +71,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<directory>${jarTarget}</directory>
+		<!--<directory>${jarTarget}</directory>-->
 		<defaultGoal>compile</defaultGoal>
 		<plugins>
 			<plugin>
@@ -98,17 +92,6 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<useUniqueVersions>false</useUniqueVersions>
-						</manifest>
-					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
