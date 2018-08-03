@@ -8,4 +8,4 @@ LIB_DIR=$DEPLOY_PATH/lib
 LIB_JAR=`ls $LIB_DIR | grep ".jar" | awk '{print "$LIB_DIR/"$0}'|tr "\n" ":"`
 echo "lib jar : $LIB_JAR"
 echo "conf dir : $CONF_DIR"
-java -Ddev=DEV -Ddev_meta=http://apollo:8080 -classpath $CONF_DIR:$LIB_JARS com.wind.auth.Application
+java -Ddev=DEV -Ddev_meta=http://apollo:8080 -classpath $CONF_DIR:$LIB_JAR com.wind.auth.Application
